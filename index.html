@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models">
+  <meta name="keywords" content="Generative AI; Robot Design; Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="stylesheet" href="./static/css/comparison-slider.scss"> -->
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu is-hoverable">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link white-text">
+          Go To
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#abstract">
+            Abstract
+          </a>
+          <a class="navbar-item" href="#video">
+            Video
+          </a>
+          <a class="navbar-item" href="#overview">
+            Overview
+          </a>
+          <a class="navbar-item" href="#toward_physical_utility">
+            Toward Physical Utility
+          </a>
+          <a class="navbar-item" href="#robot_evolution_through_diffusion">
+            Robot Evolution Through Diffusion
+          </a>
+          <a class="navbar-item" href="#robot_evolution_through_embedding_optimization">
+            Robot Evolution Through Embedding Optimization
+          </a>
+          <a class="navbar-item" href="#design_with_human_feedback_via_language">
+            Design With Human Feedback Via Language
+          </a>
+          <a class="navbar-item" href="#physical_robot_fabrication">
+            Physical Robot Fabrication
+          </a>
+          <a class="navbar-item" href="#bibtex">
+            BibTex
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zswang666.github.io/">Tsun-Hsuan Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Juntian Zheng</a><sup>2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://pingchuan.ma/">Pingchuan Ma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yilundu.github.io/">Yilun Du</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://bc-kim.github.io/">Byungchul Kim</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.andrewspielberg.com/">Andrew Spielberg</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://web.mit.edu/cocosci/josh.html">Joshua Tenenbaum</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.csail.mit.edu/ganchuang/">Chuang Gan</a><sup>1,3,5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://danielarus.csail.mit.edu/">Daniela Rus</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT</span>
+            <span class="author-block"><sup>2</sup>Tsinghua University</span>
+            <span class="author-block"><sup>3</sup>MIT-IBM Watson AI Lab</span>
+            <span class="author-block"><sup>4</sup>Harvard</span>
+            <span class="author-block"><sup>5</sup>UMass Amherst</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/forum?id=1zo4iioUEs"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Openreview</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (TBU)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video (TBU)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zswang666/drive-anywhere"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (TBU)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              <span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title has-text-centered" style="color: yellow;">
+        TL;DR: Design robot with generative AI.
+      </h2>
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        DiffuseBot aims to augment diffusion models with physical utility and designs for high-level functional
+        specifications including robot geometry, material stiffness, and actuator placement.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content subtitle has-text-justified">
+          <p>
+            Nature evolves creatures with a high complexity of morphological and behavioral
+            intelligence, meanwhile computational methods lag in approaching that diversity
+            and efficacy. Co-optimization of artificial creatures' morphology and control in
+            silico shows promise for applications in physical soft robotics and virtual character
+            creation; such approaches, however, require developing new learning algorithms
+            that can reason about function atop pure structure. In this paper, we present <b>DiffuseBot, 
+            a physics-augmented diffusion model that generates soft robot morphologies
+            capable of excelling in a wide spectrum of tasks</b>. DiffuseBot bridges the gap
+            between virtually generated content and physical utility by (i) <u>augmenting the
+            diffusion process with a physical dynamical simulation which provides a certificate
+            of performance</u>, and (ii) <u>introducing a co-design procedure that jointly optimizes
+            physical design and control by leveraging information about physical sensitivities
+            from differentiable simulation</u>. We showcase a range of simulated and fabricated
+            robots along with their capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered" id="video">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/0a5fZLneMSg"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero overview" id="overview">
+  <div class="hero-body overview-body">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 is-centered has-text-centered">How Does DiffuseBot Work?</h2>
+        
+        <div id="overview-wrapper"> 
+          <video id="video-overview" autoplay muted loop playsinline>
+            <source src="./static/videos/overview.mp4"
+                    type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-justified">
+            The DiffuseBot framework consists of three modules:
+            <br/>
+            <b><u>(i) Robotizing</u></b>, which converts diffusion samples (e.g., surface point cloud) into physically simulatable soft robot designs with high-level functional specifications including robot geometry, material stiffness, and actuator placement. This step endows the prerequisite of physical utility to a generation from the diffusion model.
+            <br/>
+            <b><u>(ii) Embedding Optimization</u></b>, which iteratively generate new robot designs to be evaluated for training the conditional embedding. This involves an online learning scheme that uses the embedding-conditioned diffusion model to generate a dataset to train itself with the sampling distribution biased toward high task performance.
+            <br/>
+            <b><u>(iii) Diffusion as Co-design</u></b>, which guides the sampling process with co-design gradients from differentiable simulation. We reformulate the diffusion sampling process into a join design and control optimization: in each diffusion step, intermediate sample is updated via Markov Chain Monte Carlo from design gradient; along with a co-optimizing controller that adapts to the current robot design.
+            <br/><br/>
+            The physics-based simulation provides is augmented with the diffusion models via:
+            <br/>
+            <u>Arrow (A)</u>: evaluating robot design and provide task performance to guide training data distribution. 
+            <br/>
+            <u>Arrow (B)</u>: gradients of design and control from differentiable physics toward improved physical utility.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small" id="toward_physical_utility">
+  <div class="hero-body results-body">
+    <div class="container">
+      <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Toward Physical Utility</h2>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-balancing">
+          <video poster="" id="balancing" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_balancing.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-object_toss">
+          <video poster="" id="object_toss" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_landing.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-crawling">
+          <video poster="" id="crawling" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_crawling.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-hurdling">
+          <video poster="" id="hurdling" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_hurdling.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-gripping">
+          <video poster="" id="gripping" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_gripping.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-moving_a_box">
+          <video poster="" id="moving_a_box" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/task_box_moving.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="robot_evolution_through_diffusion">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Robot Evolution Through Diffusion</h2>
+    <!-- Start. -->
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Balancing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-0">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-0"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Landing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-1">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-1"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Crawling</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-2">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-2"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Hurdling</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-3">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-3"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Gripping</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-4">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-4"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Box Moving</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-5">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-5"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+  </div>
+</section>
+
+
+<section class="section" id="robot_evolution_through_embedding_optimization">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Robot Evolution Through Embedding Optimization</h2>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Balancing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-6">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-6"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Landing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-7">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-7"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Crawling</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-8">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-8"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Hurdling</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-9">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-9"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Gripping</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-10">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-10"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2 class="subtitle is-4 is-centered has-text-centered">Box Moving</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column interpolation-video-column">
+                <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-11">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info white-text"
+                        id="interpolation-slider-11"
+                        step="1" min="0" max="20" value="0" type="range">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="design_with_human_feedback_via_language">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Design With Human Feedback Via Language</h2>
+
+    <div class="column is-centered">
+      <div class="menu">
+        <select id="DropdownListID" 
+            onchange="SelectAnItem(this.selectedIndex)"
+            class="has-text-centered">
+          <option value="diffusebot_balancing_text_ball">Task: Balancing + Human Feedback: "A Ball"</option>
+          <option value="diffusebot_crawling_text_round_disk">Task: Crawling + Human Feedback: "A Round Disk"</option>
+          <option value="diffusebot_hurdling_text_wings">Task: Hurdling + Human Feedback: "Two Wings"</option>
+          <option value="diffusebot_moving_a_box_text_thick">Task: Box Moving + Human Feedback: "Thick"</option>
+          <option value="diffusebot_crawling_unicorn">Task: Crawling + Human Feedback: "A Unicorn"</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="column data" id="diffusebot_balancing_text_ball">
+        <div class="comparison-slider-wrapper">
+          <div class="comparison-slider">
+            <div class="overlay subtitle is-5">+ Human Feedback: "A Ball"</div>
+            <img src="./static/images/human_feedback_more/diffusebot_balancing_text_ball.png">
+            <div class="resize">
+              <div class="overlay subtitle is-5">Task: Balancing</div>
+              <img src="./static/images/human_feedback_more/diffusebot_balancing.png">
+            </div>
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="column data" id="diffusebot_crawling_text_round_disk">
+        <div class="comparison-slider-wrapper">
+          <div class="comparison-slider">
+            <div class="overlay subtitle is-5">+ Human Feedback: "A Round Disk"</div>
+            <img src="./static/images/human_feedback_more/diffusebot_crawling_text_round_disk.png">
+            <div class="resize">
+              <div class="overlay subtitle is-5">Task: Crawling</div>
+              <img src="./static/images/human_feedback_more/diffusebot_crawling.png">
+            </div>
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="column data" id="diffusebot_hurdling_text_wings">
+        <div class="comparison-slider-wrapper">
+          <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+          <div class="comparison-slider">
+            <div class="overlay subtitle is-5">+ Human Feedback: "Two Wings"</div>
+            <img src="./static/images/human_feedback_more/diffusebot_hurdling_text_wings.png">
+            <!-- Div containing the image layed out on top from the left -->
+            <div class="resize">
+              <div class="overlay subtitle is-5">Task: Hurdling</div>
+              <img src="./static/images/human_feedback_more/diffusebot_hurdling.png">
+            </div>
+            <!-- Divider where user will interact with the slider -->
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="column data" id="diffusebot_moving_a_box_text_thick">
+        <div class="comparison-slider-wrapper">
+          <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+          <div class="comparison-slider">
+            <div class="overlay subtitle is-5">+ Human Feedback: "Thick"</div>
+            <img src="./static/images/human_feedback_more/diffusebot_moving_a_box_text_thick.png">
+            <!-- Div containing the image layed out on top from the left -->
+            <div class="resize">
+              <div class="overlay subtitle is-5">Task: Box Moving</div>
+              <img src="./static/images/human_feedback_more/diffusebot_moving_a_box.png">
+            </div>
+            <!-- Divider where user will interact with the slider -->
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="column data" id="diffusebot_crawling_unicorn">
+        <div class="comparison-slider-wrapper">
+          <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+          <div class="comparison-slider">
+            <div class="overlay subtitle is-5">+ Human Feedback: "A Unicorn"</div>
+            <img src="./static/images/human_feedback_more/diffusebot_crawling2_unicorn.png">
+            <!-- Div containing the image layed out on top from the left -->
+            <div class="resize">
+              <div class="overlay subtitle is-5">Task: Crawling</div>
+              <img src="./static/images/human_feedback_more/diffusebot_crawling2.png">
+            </div>
+            <!-- Divider where user will interact with the slider -->
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="physical_robot_fabrication">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Physical Robot Fabrication</h2>
+
+    <div class="column">
+      <img src="./static/images/real_robot.png">
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <h4 class="subtitle is-4 is-centered has-text-centered">Simulation</h4>
+        <video poster="" id="sim_gripper" autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/gripping_in_sim.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+      <div class="column">
+        <h4 class="subtitle is-4 is-centered has-text-centered">Physical World</h4>
+        <video poster="" id="real_gripper" autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/gripping_in_real_resized.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3" style="color:white;">BibTeX</h2>
+    <pre><code>@inproceedings{
+  wang2023diffusebot,
+  title={DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models},
+  author={Tsun-Hsuan Wang and Juntian Zheng and Pingchuan Ma and Yilun Du and Byungchul Kim and Andrew Everett Spielberg and Joshua B. Tenenbaum and Chuang Gan and Daniela Rus},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  year={2023},
+  url={https://openreview.net/forum?id=1zo4iioUEs}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer black-background">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p> -->
+          <p>
+              This website template is borrowed from the great <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

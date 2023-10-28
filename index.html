@@ -89,6 +89,9 @@
           <a class="navbar-item" href="#physical_robot_fabrication">
             Physical Robot Fabrication
           </a>
+          <a class="navbar-item" href="#related_projects">
+            Related Resources
+          </a>
           <a class="navbar-item" href="#bibtex">
             BibTex
           </a>
@@ -105,7 +108,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models</h1>
+          <h1 class="title publication-title">DiffuseBot: Breeding Soft Robots With Physics-Augmented Generative Diffusion Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://zswang666.github.io/">Tsun-Hsuan Wang</a><sup>1</sup>,</span>
@@ -120,6 +123,7 @@
             <span class="author-block">
               <a href="https://bc-kim.github.io/">Byungchul Kim</a><sup>1</sup>,
             </span>
+            <br>
             <span class="author-block">
               <a href="http://www.andrewspielberg.com/">Andrew Spielberg</a><sup>1,4</sup>,
             </span>
@@ -127,10 +131,10 @@
               <a href="http://web.mit.edu/cocosci/josh.html">Joshua Tenenbaum</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://people.csail.mit.edu/ganchuang/">Chuang Gan</a><sup>1,3,5</sup>,
+              <a href="https://people.csail.mit.edu/ganchuang/">Chuang Gan</a><sup>1,3,5,&#8224;</sup>,
             </span>
             <span class="author-block">
-              <a href="https://danielarus.csail.mit.edu/">Daniela Rus</a><sup>1</sup>
+              <a href="https://danielarus.csail.mit.edu/">Daniela Rus</a><sup>1,&#8224;</sup>
             </span>
           </div>
 
@@ -140,6 +144,14 @@
             <span class="author-block"><sup>3</sup>MIT-IBM Watson AI Lab</span>
             <span class="author-block"><sup>4</sup>Harvard</span>
             <span class="author-block"><sup>5</sup>UMass Amherst</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>&#8224;</sup>indicates equal advising</span>
+          </div>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block"><b>NeurIPS 2023 (Spotlight)</b></span>
           </div>
 
           <div class="column has-text-centered">
@@ -206,10 +218,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="title has-text-centered" style="color: yellow;">
-        TL;DR: Design robot with generative AI.
+        TL;DR: Design robots with generative AI.
       </h2>
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/teaser_v2.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -354,7 +366,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Balancing</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-0">
                   Loading...
@@ -363,7 +375,10 @@
                         id="interpolation-slider-0"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_balancing" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_balancing.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -372,7 +387,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Landing</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-1">
                   Loading...
@@ -381,7 +396,10 @@
                         id="interpolation-slider-1"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_landing" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_landing.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -392,7 +410,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Crawling</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-2">
                   Loading...
@@ -401,7 +419,10 @@
                         id="interpolation-slider-2"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_crawling" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_crawling.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -410,7 +431,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Hurdling</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-3">
                   Loading...
@@ -419,7 +440,10 @@
                         id="interpolation-slider-3"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_hurdling" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_hurdling.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -430,7 +454,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Gripping</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-4">
                   Loading...
@@ -439,7 +463,10 @@
                         id="interpolation-slider-4"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_gripping" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_gripping.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -448,7 +475,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Box Moving</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-5">
                   Loading...
@@ -457,7 +484,10 @@
                         id="interpolation-slider-5"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="diffusion_box_moving" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/diffusion_box_moving.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -476,7 +506,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Balancing</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-6">
                   Loading...
@@ -485,7 +515,10 @@
                         id="interpolation-slider-6"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="evo_balancing" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/evo_balancing.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -494,7 +527,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Landing</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-7">
                   Loading...
@@ -503,7 +536,10 @@
                         id="interpolation-slider-7"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="evo_landing" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/evo_landing.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -514,7 +550,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Crawling</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-8">
                   Loading...
@@ -523,7 +559,10 @@
                         id="interpolation-slider-8"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="evo_crawling" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/evo_crawling.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -532,7 +571,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Hurdling</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-9">
                   Loading...
@@ -541,7 +580,10 @@
                         id="interpolation-slider-9"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="evo_hurdling" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/evo_hurdling.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -552,7 +594,7 @@
         <h2 class="subtitle is-4 is-centered has-text-centered">Gripping</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <div class="columns is-vcentered interpolation-panel">
+            <!-- <div class="columns is-vcentered interpolation-panel">
               <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-10">
                   Loading...
@@ -561,7 +603,10 @@
                         id="interpolation-slider-10"
                         step="1" min="0" max="20" value="0" type="range">
               </div>
-            </div>
+            </div> -->
+            <video poster="" id="evo_gripping" autoplay controls loop muted playsinline width="100%" class="round-border">
+              <source src="./static/videos/evo_gripping.mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -571,14 +616,17 @@
         <div class="columns is-centered">
           <div class="column content">
             <div class="columns is-vcentered interpolation-panel">
-              <div class="column interpolation-video-column">
+              <!-- <div class="column interpolation-video-column">
                 <div class="interpolation-image-wrapper" id="interpolation-image-wrapper-11">
                   Loading...
                 </div>
                 <input class="slider is-fullwidth is-large is-info white-text"
                         id="interpolation-slider-11"
                         step="1" min="0" max="20" value="0" type="range">
-              </div>
+              </div> -->
+              <video poster="" id="evo_box_moving" autoplay controls loop muted playsinline width="100%" class="round-border">
+                <source src="./static/videos/evo_box_moving.mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -697,14 +745,14 @@
     <div class="columns is-centered">
       <div class="column">
         <h4 class="subtitle is-4 is-centered has-text-centered">Simulation</h4>
-        <video poster="" id="sim_gripper" autoplay controls muted loop playsinline width="100%">
+        <video poster="" id="sim_gripper" autoplay controls muted loop playsinline width="100%" class="round-border">
           <source src="./static/videos/gripping_in_sim.mp4"
                   type="video/mp4">
         </video>
       </div>
       <div class="column">
         <h4 class="subtitle is-4 is-centered has-text-centered">Physical World</h4>
-        <video poster="" id="real_gripper" autoplay controls muted loop playsinline width="100%">
+        <video poster="" id="real_gripper" autoplay controls muted loop playsinline width="100%" class="round-border">
           <source src="./static/videos/gripping_in_real_resized.mp4"
                   type="video/mp4">
         </video>
@@ -713,6 +761,37 @@
 
   </div>
 </section>
+
+
+<section class="section" id="related_projects">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-centered has-text-centered" style="color:white;">Related Resources</h2>
+    
+    <br>
+    Check out our related papers on studying morphological and behavioral intelligence in robots.
+    <br>
+    <br>
+
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="15">
+      <td width="33%" valign="top" align="center">
+        <div style="margin-top:0.4cm;">
+          <img src="./static/images/softzoo_thumbnail.png" class="img-fluid round-border" alt="dd" style="width:90%">
+        </div>
+      </td>
+      <td width="67%" valign="top">
+        <div class="paper-title">
+          <a href="https://sites.google.com/view/softzoo-iclr-2023">SoftZoo: A Soft Robot Co-design Benchmark For Locomotion In Diverse Environments</a>
+        </div>
+        <div class="has-text-justified">
+            We build a soft robot co-design platform for locomotion in diverse environments with an extensive, naturally-inspired material set,
+            a variety of tasks relevant for soft robotics, and differentiable design representations for morphology and control. SoftZoo
+            a standard platform and template an approach toward the development of novel representations and algorithms for co-designing soft robots' behavioral and morphological intelligence. 
+        </div>
+      </td>
+    </table>
+
+  </div>
+</section> 
 
 
 <section class="section" id="bibtex">

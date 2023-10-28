@@ -82,6 +82,7 @@ body {
 .publication-title {
     font-family: 'Google Sans', sans-serif;
     color: #f5f5f5;
+    font-size: 34pt;
 }
 
 .publication-authors {
@@ -332,4 +333,12 @@ body {
   background: rgb(0, 0, 0);
   color: #fff;
   text-shadow: 0 10px 10px #ffffff71;
+}
+
+.round-border {
+  border-radius: 5px;
+}
+
+.row {
+  margin: 16px 0px 16px 0px;
 }
